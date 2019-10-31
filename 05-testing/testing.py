@@ -22,10 +22,19 @@ def overlap_time(obs1, obs2):
     ot = []
     for tr0, tr1 in obs1:
         for tra, trb in obs2:
-            low = max(tr0, tra)
-            high = min(tr1, trb)
-            ot.append((low, high))
+            if tr0 <= tra <= tr1 or tr0 <= trb <= tr1:
+                low = max(tr0, tra)
+                high = min(tr1, trb)
+                ot.append((low, high))
     return ot
+
+# generating time in minutes
+    
+def time_diff_min(t0, t1):
+    t0_s = datetime.datetime.strptime(t0, "%Y-%m-%d %H:%M:%S") # parsing strings to numbers
+    t1_s = datetime.datetime.strptime(t1, "%Y-%m-%d %H:%M:%S") # parsing strings to numbers
+    d = (t1_s - t0_s).total_seconds() / 60 # return time in minutes
+    return d
 
 # calls two functions as seen above
 if __name__ == "__main__":
