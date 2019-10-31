@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 31 11:11:31 2019
+
+@author: nina
+
+test_class_time 
+"""
+
+from testing import overlap_time
+
+def test_given_input():
+    if __name__ == "main":
+        
+        large = time_range("2019-10-31 10:00:00", "2019-10-31 13:00:00")
+        short = time_range("2019-10-31 10:05:00", "2019-10-31 12:55:00", 3, 600) #3 segments with 10 min breaks
+        result = (overlap_time(large, short))
+        expected = short
+        assert result == expected
