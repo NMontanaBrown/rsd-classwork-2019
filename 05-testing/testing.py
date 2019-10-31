@@ -5,6 +5,10 @@ Testing for RSD
 
 import datetime
 
+# generates a range in python, have a timeline
+# t0 is first time, t1 is last time
+# number of steps n the block of time 
+# g = gap between observations 
 def time_range(t0, t1, n=1, g=0):
     t0_s = datetime.datetime.strptime(t0, "%Y-%m-%d %H:%M:%S")
     t1_s = datetime.datetime.strptime(t1, "%Y-%m-%d %H:%M:%S")
@@ -23,7 +27,7 @@ def overlap_time(obs1, obs2):
             ot.append((low, high))
     return ot
 
-
+# calls two functions as seen above
 if __name__ == "__main__":
     large = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
     short = time_range("2010-01-12 10:30:00", "2010-01-12 10:45:00", 2, 60)
