@@ -4,7 +4,7 @@ from numpy import sqrt
 
 def average_of_squares(list_of_numbers, list_of_weights=None):
     """
-    Return the weighted average of a list of values.
+    Return the weighted average of the square of each item in a list of values.
     By default, all values are equally weighted, but this can be changed
     by the list_of_weights argument.
 
@@ -29,7 +29,7 @@ def average_of_squares(list_of_numbers, list_of_weights=None):
         for number, weight
         in zip(list_of_numbers, effective_weights)
     ]
-    return sum(squares)
+    return float(sum(squares) /len(squares))
 
 
 def convert_numbers(list_of_strings):
@@ -39,7 +39,7 @@ def convert_numbers(list_of_strings):
     Example:
     -------
     >>> convert_numbers(["4", " 8 ", "15 16", " 23    42 "])
-    [4, 8, 15, 16]
+    [4.0, 8.0, 15.0, 16.0, 23.0, 42.0]
     """
     all_numbers = []
     for s in list_of_strings:
@@ -73,7 +73,6 @@ if __name__ == "__main__":
     else:
         weights = None
 
-    
     result = average_of_squares(numbers, weights)
 
     # TODO Can we add the option of computing the square root of this result
@@ -81,4 +80,5 @@ if __name__ == "__main__":
         root = sqrt(result)
 
     # TODO Can we write the result in a file instead of printing it?
+
     print(result, root)
