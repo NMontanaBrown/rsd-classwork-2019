@@ -6,7 +6,7 @@ def average_of_squares(list_of_numbers, list_of_weights=None):
     """
     Return the weighted average of the square of each item in a list of values.
     By default, all values are equally weighted, but this can be changed
-    by the list_of_weights argument.
+    by the list_of_weights argument. 
 
     Example:
     -------
